@@ -28,8 +28,8 @@ class AppString {
   static const dontHaveAccount = 'Don\'t have an account? Sign Up';
   
   // Transaction
-  static const transactions = 'Transactions';
-  static const newTransaction = 'New Transaction';
+  static const allTransactions = 'All Transactions';
+  static const addTransaction = 'Add Transaction';
   static const dispenserNo = 'Dispenser No *';
   static const pleaseSelectDispenser = 'Please select a dispenser';
   static const quantityFilled = 'Quantity Filled (Liters) *';
@@ -59,6 +59,7 @@ class AppString {
   
   // Listing
   static const logout = 'Logout';
+  static const letStart = 'Lets Start';
   static const areYouSureLogout = 'Are you sure you want to logout?';
   static const cancel = 'Cancel';
   static const ok = 'OK';

@@ -96,6 +96,11 @@ class DatabaseService {
     );
   }
 
+  Future<int> clearAllTransactions() async {
+    final db = await database;
+    return await db.delete('transactions');
+  }
+
   Future close() async {
     final db = await database;
     db.close();

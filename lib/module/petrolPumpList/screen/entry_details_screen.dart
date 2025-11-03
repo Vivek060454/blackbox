@@ -30,7 +30,7 @@ class EntryDetailsScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: AppText(
-          text: AppString.newTransaction,
+          text: AppString.addTransaction,
           color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.bold,
@@ -89,7 +89,6 @@ class EntryDetailsScreen extends StatelessWidget {
                     ),
                     SizedBox(height: size.height * 0.023),
 
-                    // Quantity Filled
                     TextFormField(
                       keyboardType: const TextInputType.numberWithOptions(
                         decimal: true,

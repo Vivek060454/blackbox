@@ -8,6 +8,7 @@ import 'package:sizer/sizer.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:open_file/open_file.dart';
 import '../controller/transaction_controller.dart';
+import '../service/database_service.dart';
 import '../../auth/service/auth_service.dart';
 import '../../../utils/app_string.dart';
 import '../../../utils/status_strings.dart';
@@ -61,7 +62,7 @@ class ListingScreen extends StatelessWidget {
         ),
 
         title: AppText(
-          text: AppString.transactions,
+          text: AppString.allTransactions,
           color: AppColors.white,
           fontSize: 20.sp,
           fontWeight: FontWeight.bold,
@@ -114,13 +115,34 @@ class ListingScreen extends StatelessWidget {
                         color: AppColors.mediumGrey,
                       ),
                       const SizedBox(height: 16),
-                      Text(
+                      AppText(text:
                         AppString.noDataFound,
-                        style: TextStyle(
-                          fontSize: 18,
-                          color: AppColors.darkGrey,
-                        ),
+                        fontSize: 16.sp,
+                        color: AppColors.darkGrey,
                       ),
+                      const SizedBox(height: 16),
+
+                      MyRippleEffectWidget(
+                          onTap: (){
+                            Get.toNamed('/entry-details');
+
+                          },
+                          child: Container(
+                        padding: EdgeInsets.symmetric(vertical: 8.sp,horizontal: 16.sp),
+                        decoration: BoxDecoration(
+                          color: AppColors.red,
+                          borderRadius: BorderRadius.circular(13.sp)
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.min,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            AppText(text: AppString.letStart,fontWeight: FontWeight.w500,color: AppColors.white,),
+                            SizedBox(width: 10.sp,),
+                            Icon(Icons.arrow_right_alt,color: AppColors.white,)
+                          ],
+                        ),
+                      ))
                     ],
                   ),
                 );
@@ -575,6 +597,13 @@ class ListingScreen extends StatelessWidget {
                 if (!await CheckInternetConnection().internetAvailable()) {
                   AppSnackBar.noInterNetSnackBar();
                   return;
+                }
+
+                // Clear database
+                try {
+                  await DatabaseService.instance.clearAllTransactions();
+                } catch (e) {
+                  // Continue with logout even if clearing database fails
                 }
 
                 await _authService.signOut();
