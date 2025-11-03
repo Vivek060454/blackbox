@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "896903197643",
+    "project_id": "petrol-pump-dispensing",
+    "storage_bucket": "petrol-pump-dispensing.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:896903197643:android:372d6552e3b2e09a7bbc4e",
+        "android_client_info": {
+          "package_name": "com.example.petrolpumpdispensing"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAXDqKCT1gG7Oo9K5s47IxswpdpntHM9jA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
